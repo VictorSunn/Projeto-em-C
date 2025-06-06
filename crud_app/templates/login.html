@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #fdfdfd;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+
+        input {
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Merriweather', serif;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #FF6B35;
+            outline: none;
+        }
+
+        button {
+            background-color: #FF6B35;
+            color: #fff;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-family: 'Poppins', sans-serif;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        button:hover {
+            background-color: #e85c29;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #FF6B35;
+            font-weight: 500;
+            border: 2px solid #FF6B35;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        a:hover {
+            background-color: rgba(255, 107, 53, 0.1);
+            color: #d94e1f;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            input, button {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h2>Login</h2>
+        <input name="username" placeholder="Usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+        <a href="/register">Criar conta</a>
+    </form>
+</body>
+</html>

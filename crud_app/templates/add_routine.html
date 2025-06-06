@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Adicionar Rotina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Merriweather', serif;
+      background-color: #fdfdfd;
+      color: #333;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px dashed #ddd;
+      padding-bottom: 0.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="time"] {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    button {
+      background-color: #FF6B35;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e85c29;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      color: #FF6B35;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Adicionar Rotina para o residente</h2>
+    <form method="POST">
+      <label>Descrição:</label>
+      <input type="text" name="description" required>
+
+      <label>Prioridade (menor = mais importante):</label>
+      <input type="number" name="priority" min="1" required>
+
+      <label>Horário:</label>
+      <input type="time" name="time" required>
+
+      <button type="submit">Salvar</button>
+    </form>
+
+    <a href="{{ url_for('view_item', item_id=item_id) }}">⬅️ Voltar</a>
+  </div>
+</body>
+</html>

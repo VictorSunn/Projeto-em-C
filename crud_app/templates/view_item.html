@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotinas para: {{ item.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #fefefe;
+            color: #333;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1, h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #333;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        a {
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            color: #FF6B35;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-right: 0.5rem;
+        }
+
+        a:hover {
+            color: #d94e1f;
+        }
+
+        .add-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            background-color: #FF6B35;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-link:hover {
+            background-color: #e85c29;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        li {
+            background-color: #fafafa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .routine-text {
+            flex: 1;
+        }
+
+        .routine-actions a {
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            border: 2px solid #FF6B35;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: #FF6B35;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .routine-actions {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rotinas para: {{ item.title }}</h1>
+
+        <a href="{{ url_for('add_routine', item_id=item.id) }}" class="add-link">➕ Adicionar Rotina</a>
+
+        <ul>
+            {% for routine in routines %}
+            <li>
+                <span class="routine-text">
+                    {{ routine.description }} | Prioridade: {{ routine.priority }} | Horário: {{ routine.time }}
+                </span>
+                <span class="routine-actions">
+                    <a href="{{ url_for('edit_routine', routine_id=routine.id) }}">✏️</a>
+                    <a href="{{ url_for('delete_routine', routine_id=routine.id) }}">❌</a>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('dashboard') }}" class="back-link">⬅️ Voltar</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Completo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #fdfdfd;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 620px;
+            border: 2px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.7rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #FF6B35;
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        strong {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        button {
+            flex: 1;
+            background-color: #FF6B35;
+            color: #fff;
+            padding: 0.6rem 0.9rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #e85c29;
+            transform: translateY(-2px);
+        }
+
+        a {
+            text-decoration: none;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro Completo do Paciente</h1>
+        <h2>{{ item.nome }}</h2>
+
+        <h1>Detalhes do Paciente</h1>
+
+        <p><strong>Nome:</strong> {{ item.title }}</p>
+        <p><strong>Idade:</strong> {{ item.idade }}</p>
+        <p><strong>CPF:</strong> {{ item.cpf }}</p>
+        <p><strong>Doenças/Alergias:</strong> {{ item.doencas }}</p>
+        <p><strong>Contato de Emergência:</strong> {{ item.contato_emergencia }}</p>
+        <p><strong>Observações:</strong> {{ item.observacoes }}</p>
+
+        <div class="buttons">
+            <a href="{{ url_for('editar', item_id=item.id) }}">
+                <button>Editar Cadastro</button>
+            </a>
+
+            <a href="{{ url_for('dashboard') }}">
+                <button>Voltar</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

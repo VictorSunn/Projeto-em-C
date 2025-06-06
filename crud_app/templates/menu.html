@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #fdfdfd;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 1rem;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* mais espaço entre botões */
+            background-color: #fff;
+            padding: 3rem; /* mais espaço interno */
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 500px; /* largura aumentada */
+            min-height: 400px; /* altura mínima maior */
+            transition: all 0.3s ease-in-out;
+            align-items: center;
+            border: 2px solid #ddd;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem; /* título maior */
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #FF6B35;
+            font-weight: bold;
+            border: none;
+            padding: 1rem 1.5rem; /* botões maiores */
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 1.2rem; /* texto maior */
+        }
+
+        a:hover {
+            background-color: #e85c29;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .menu {
+                padding: 2rem;
+                max-width: 90%;
+                min-height: auto;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h2>Menu</h2>
+        <a href="/add">📝 Cadastrar Novo Residente</a>
+        <a href="/dashboard">🔍 Visualizar Residentes Cadastrados</a>
+        <a href="/logout">🔙 Sair</a>
+    </div>
+</body>
+</html>
